@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "fm.Console.Client": {
+      "commandName": "Project"
+    }
+  }
+}

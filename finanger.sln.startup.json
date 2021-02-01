@@ -1,0 +1,12 @@
+{
+  "Version": 3,
+  "ListAllProjects": true,
+  "MultiProjectConfigurations": {
+    "Console + IS": {
+      "Projects": {
+        "fm.IdentityServer": {},
+        "fm.Console.Client": {}
+      }
+    }
+  }
+}
