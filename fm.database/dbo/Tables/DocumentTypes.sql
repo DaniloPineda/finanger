@@ -3,6 +3,7 @@
     [DocTypeName] NVARCHAR (100)     NOT NULL,
     [IsDeleted]   BIT                NOT NULL,
     [CreatedDate] DATETIMEOFFSET (7) NOT NULL,
-    [DeletedDate] DATETIMEOFFSET (7) NULL
+    [DeletedDate] DATETIMEOFFSET (7) NULL,
+    CONSTRAINT [PK_DocumentTypes] PRIMARY KEY CLUSTERED ([DocTypeId] ASC)
 );
 

@@ -5,6 +5,8 @@
     [Ammount]     MONEY              NOT NULL,
     [IsActive]    BIT                NOT NULL,
     [CreatedDate] DATETIMEOFFSET (7) NOT NULL,
-    [CreatedBy]   BIGINT             NOT NULL
+    [CreatedBy]   BIGINT             NOT NULL,
+    CONSTRAINT [PK_Portfolio] PRIMARY KEY CLUSTERED ([PortfolioId] ASC),
+    CONSTRAINT [FK_Company_Portfolio] FOREIGN KEY ([CompanyId]) REFERENCES [dbo].[Companies] ([CompanyId])
 );
 
