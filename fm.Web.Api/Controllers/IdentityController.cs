@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace fm.Web.Api.Controllers
 {
-    [Route("{controller}")]
+    [Route("[controller]")]
     [Authorize]
     public class IdentityController : ControllerBase
     {

@@ -1,4 +1,5 @@
 ﻿using IdentityModel.Client;
+using Newtonsoft.Json.Linq;
 using System.Net.Http;
 
 namespace fm.Console.Client
@@ -30,6 +31,22 @@ namespace fm.Console.Client
             }
 
             System.Console.WriteLine(tokenResponse.Json);
+
+
+
+            var apiClient = new HttpClient();
+            apiClient.SetBearerToken(tokenResponse.AccessToken);
+
+            var response = apiClient.GetAsync("https://localhost:6001/identity").Result;
+            if (!response.IsSuccessStatusCode)
+            {
+                System.Console.WriteLine(response.StatusCode);
+            }
+            else
+            {
+                var content = response.Content.ReadAsStringAsync().Result;
+                System.Console.WriteLine(JArray.Parse(content));
+            }
         }
     }
 }

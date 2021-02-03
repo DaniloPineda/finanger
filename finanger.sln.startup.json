@@ -1,11 +1,11 @@
 {
   "Version": 3,
-  "ListAllProjects": true,
+  "ListAllProjects": false,
   "MultiProjectConfigurations": {
-    "Console + IS": {
+    "General": {
       "Projects": {
         "fm.IdentityServer": {},
-        "fm.Console.Client": {}
+        "fm.Web.Api": {}        
       }
     }
   }
