@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace fm.Web.Api.Models
+namespace fm.Data.Models
 {
     public partial class UserCompany
     {

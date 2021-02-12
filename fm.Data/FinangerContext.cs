@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using fm.Data.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace fm.Web.Api.Models
+namespace fm.Data
 {
     public partial class FinangerContext : DbContext
     {
@@ -25,11 +26,6 @@ namespace fm.Web.Api.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=localhost\\MSSQLSERVER01; Database=Finanger; User Id=Admin; password=P@$$w0rd2021");
-            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -150,8 +146,7 @@ namespace fm.Web.Api.Models
 
             modelBuilder.Entity<UserCompany>(entity =>
             {
-                entity.HasNoKey();
-
+                
                 entity.HasOne(d => d.Company)
                     .WithMany()
                     .HasForeignKey(d => d.CompanyId)

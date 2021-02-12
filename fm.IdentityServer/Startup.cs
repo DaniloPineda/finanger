@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -7,11 +8,12 @@ namespace fm.IdentityServer
 {
     public class Startup
     {
-        public IWebHostEnvironment Environment { get; }
-
-        public Startup(IWebHostEnvironment environment)
+        private readonly IConfiguration _configuration;
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        public Startup(IConfiguration configuration, IWebHostEnvironment webHostEnvironment)
         {
-            Environment = environment;
+            _configuration = configuration;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -24,7 +26,7 @@ namespace fm.IdentityServer
 
         public void Configure(IApplicationBuilder app)
         {
-            if (Environment.IsDevelopment())
+            if (_webHostEnvironment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace fm.Web.Api.Models
+namespace fm.Data.Models
 {
     public partial class Company
     {

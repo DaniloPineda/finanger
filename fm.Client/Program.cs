@@ -46,7 +46,7 @@ namespace fm.Console.Client
             {
                 var content = response.Content.ReadAsStringAsync().Result;
                 System.Console.WriteLine(JArray.Parse(content));
-            }
+            }            
         }
     }
 }

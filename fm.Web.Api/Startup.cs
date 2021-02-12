@@ -1,5 +1,11 @@
+using fm.Data;
+using fm.Interfaces.Repositories;
+using fm.Repository.Services;
+using fm.Services;
+using GraphQL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -19,8 +25,7 @@ namespace fm.Web.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-
+            services.AddControllers();            
             services.AddAuthentication("Bearer")
                 .AddJwtBearer("Bearer", options =>
                 {
@@ -39,6 +44,13 @@ namespace fm.Web.Api
                     policy.RequireClaim("scope", "fmApiScope");
                 });
             });
+            var connectionString = Configuration.GetConnectionString("FinangerConnection");
+            if(!string.IsNullOrEmpty(connectionString))
+                services.AddDbContext<FinangerContext>(options => options.UseSqlServer(connectionString));
+
+            services.AddScoped<IDependencyResolver>(s => new FuncDependencyResolver(s.GetRequiredService));
+            services.AddScoped<FinangerSchema>();
+            RegisterDataServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,12 +65,18 @@ namespace fm.Web.Api
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers()
                 .RequireAuthorization("ApiScope");
             });
+        }
+
+        private void RegisterDataServices(IServiceCollection services) {
+
+            services.AddScoped<ITransactionRepository, TransactionRepository>();
+            
         }
     }
 }
