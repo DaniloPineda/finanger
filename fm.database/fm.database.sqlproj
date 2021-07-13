@@ -57,4 +57,10 @@
   <ItemGroup>
     <Folder Include="Properties" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="TransactionType.sql" />
+    <Build Include="TransactionCategory.sql" />
+    <Build Include="Currency.sql" />
+    <Build Include="Transaction.sql" />
+  </ItemGroup>
 </Project>

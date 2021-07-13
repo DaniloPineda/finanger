@@ -17,13 +17,34 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "fm.Console.Client", "fm.Cli
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "fm.database", "fm.database\fm.database.sqlproj", "{397716BA-C9DF-4FC8-BE17-F8E997A79D42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fm.Repository", "fm.Repository\fm.Repository.csproj", "{BF13BB0C-B180-45C4-A75C-12DF52A36C3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "fm.Repository", "fm.Repository\fm.Repository.csproj", "{BF13BB0C-B180-45C4-A75C-12DF52A36C3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fm.Interfaces", "fm.Interfaces\fm.Interfaces.csproj", "{EDDCADC1-1D15-4AF7-8D4D-AAE66156C804}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "fm.Interfaces", "fm.Interfaces\fm.Interfaces.csproj", "{EDDCADC1-1D15-4AF7-8D4D-AAE66156C804}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fm.Services", "fm.Services\fm.Services.csproj", "{B238E7E5-57CA-410C-B844-BBB2A9276E8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "fm.Services", "fm.Services\fm.Services.csproj", "{B238E7E5-57CA-410C-B844-BBB2A9276E8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fm.Data", "fm.Data\fm.Data.csproj", "{D32588F1-E53E-4BDD-84C5-ECEC30A0A6BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "fm.Data", "fm.Data\fm.Data.csproj", "{D32588F1-E53E-4BDD-84C5-ECEC30A0A6BE}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "fm.web.client", "fm.web.client\", "{360A9124-AA09-4E3B-8AB5-56BB45990B26}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_53346"
+		Debug.AspNetCompiler.PhysicalPath = "fm.web.client\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53346\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_53346"
+		Release.AspNetCompiler.PhysicalPath = "fm.web.client\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53346\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "53346"
+		SlnRelativePath = "fm.web.client\"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +86,10 @@ Global
 		{D32588F1-E53E-4BDD-84C5-ECEC30A0A6BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D32588F1-E53E-4BDD-84C5-ECEC30A0A6BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D32588F1-E53E-4BDD-84C5-ECEC30A0A6BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{360A9124-AA09-4E3B-8AB5-56BB45990B26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{360A9124-AA09-4E3B-8AB5-56BB45990B26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{360A9124-AA09-4E3B-8AB5-56BB45990B26}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{360A9124-AA09-4E3B-8AB5-56BB45990B26}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,6 +102,7 @@ Global
 		{EDDCADC1-1D15-4AF7-8D4D-AAE66156C804} = {4482B867-FF8A-4E71-8043-3E419791A4F5}
 		{B238E7E5-57CA-410C-B844-BBB2A9276E8D} = {4482B867-FF8A-4E71-8043-3E419791A4F5}
 		{D32588F1-E53E-4BDD-84C5-ECEC30A0A6BE} = {4482B867-FF8A-4E71-8043-3E419791A4F5}
+		{360A9124-AA09-4E3B-8AB5-56BB45990B26} = {3263CB4A-9C30-4FCF-A64D-0C4EEC720A3C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D007BA60-22A8-43A8-BBCB-0183E19BF262}
