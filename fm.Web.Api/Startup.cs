@@ -1,7 +1,7 @@
-using fm.Data;
 using fm.Interfaces.Repositories;
 using fm.Repository.Services;
 using fm.Services;
+using fm.Services.EFModels;
 using GraphQL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

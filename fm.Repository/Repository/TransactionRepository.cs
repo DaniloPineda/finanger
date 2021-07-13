@@ -1,6 +1,5 @@
-﻿using fm.Data;
-using fm.Data.Models;
-using fm.Interfaces.Repositories;
+﻿using fm.Interfaces.Repositories;
+using fm.Services.EFModels;
 
 namespace fm.Repository.Services
 {
