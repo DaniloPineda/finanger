@@ -1,7 +1,6 @@
-using fm.Interfaces.Repositories;
-using fm.Repository.Services;
+using fm.Common;
+using fm.Data.EFModels;
 using fm.Services;
-using fm.Services.EFModels;
 using GraphQL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -9,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 namespace fm.Web.Api
 {
@@ -21,36 +20,45 @@ namespace fm.Web.Api
         }
 
         public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
+                
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();            
-            services.AddAuthentication("Bearer")
-                .AddJwtBearer("Bearer", options =>
-                {
-                    options.Authority = "https://localhost:5001";
+            services.AddControllers();
+            //services.AddAuthentication("Bearer")
+            //    .AddJwtBearer("Bearer", options =>
+            //    {
+            //        options.Authority = "https://localhost:5001";
 
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateAudience = false
-                    };
-                });
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy("ApiScope", policy =>
-                {
-                    policy.RequireAuthenticatedUser();
-                    policy.RequireClaim("scope", "fmApiScope");
-                });
-            });
+            //        options.TokenValidationParameters = new TokenValidationParameters
+            //        {
+            //            ValidateAudience = false
+            //        };
+            //    });
+            //services.AddAuthorization(options =>
+            //{
+            //    options.AddPolicy("ApiScope", policy =>
+            //    {
+            //        policy.RequireAuthenticatedUser();
+            //        policy.RequireClaim("scope", "fmApiScope");
+            //    });
+            //});
             var connectionString = Configuration.GetConnectionString("FinangerConnection");
             if(!string.IsNullOrEmpty(connectionString))
                 services.AddDbContext<FinangerContext>(options => options.UseSqlServer(connectionString));
 
             services.AddScoped<IDependencyResolver>(s => new FuncDependencyResolver(s.GetRequiredService));
             services.AddScoped<FinangerSchema>();
-            RegisterDataServices(services);
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "FinangerSwagger", Version = "v1" });
+            });
+            var config = new AutoMapper.MapperConfiguration(cfg =>
+            {
+                DependencyInjector.UpdateAutoMapperConfiguration(cfg);
+            });
+            var mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
+            DependencyInjector.ConfigureAll(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,6 +66,11 @@ namespace fm.Web.Api
         {
             if (env.IsDevelopment())
             {
+                app.UseSwagger();                
+                app.UseSwaggerUI(c => {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "FinangerSwagger v1");
+                    c.RoutePrefix = string.Empty;
+                });
                 app.UseDeveloperExceptionPage();
             }
 
@@ -68,15 +81,9 @@ namespace fm.Web.Api
             
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers()
-                .RequireAuthorization("ApiScope");
+                endpoints.MapControllers();
+                //.RequireAuthorization("ApiScope");
             });
-        }
-
-        private void RegisterDataServices(IServiceCollection services) {
-
-            services.AddScoped<ITransactionRepository, TransactionRepository>();
-            
         }
     }
 }

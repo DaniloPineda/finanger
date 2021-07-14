@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace fm.Services.EFModels
+namespace fm.Data.EFModels
 {
     public partial class FinangerContext : DbContext
     {

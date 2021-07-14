@@ -1,7 +1,7 @@
-﻿using fm.Interfaces.Repositories;
-using fm.Services.EFModels;
+﻿using fm.Data.EFModels;
+using fm.Interfaces.Repositories;
 
-namespace fm.Repository.Services
+namespace fm.Repository.Repository
 {
     public class TransactionRepository : BaseRepository<Transaction> , ITransactionRepository
     {

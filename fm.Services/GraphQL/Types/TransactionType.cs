@@ -1,4 +1,4 @@
-﻿using fm.Services.EFModels;
+﻿using fm.Data.EFModels;
 using GraphQL.Types;
 
 namespace fm.Services.GraphQL.Types

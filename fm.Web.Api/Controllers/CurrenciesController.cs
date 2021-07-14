@@ -10,30 +10,30 @@ namespace fm.Web.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TransactionsController : ControllerBase
+    public class CurrenciesController : ControllerBase
     {
-        private ITransactionService _transactionService;
+        private ICurrencyService _currencyService;
 
-        public TransactionsController(ITransactionService transactionService)
+        public CurrenciesController(ICurrencyService currencyService)
         {
-            _transactionService = transactionService;
+            _currencyService = currencyService;
         }
 
-        // GET: api/Transactions
+        // GET: api/Currencies
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TransactionModel>>> GetTransactions()
+        public async Task<ActionResult<IEnumerable<CurrencyModel>>> GetCurrencies()
         {
-            var result = await _transactionService.GetAll();
+            var result = await _currencyService.GetAll();
             if (result.Any())
                 return Ok(result);
             return NoContent();
         }
 
-        // GET: api/Transactions/5
+        // GET: api/Currencies/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<TransactionModel>> GetTransaction(long id)
+        public async Task<ActionResult<CurrencyModel>> GetCurrency(long id)
         {
-            var model = await _transactionService.GetById(id);
+            var model = await _currencyService.GetById(id);
 
             if (model == null)
             {
@@ -43,14 +43,14 @@ namespace fm.Web.Api.Controllers
             return model;
         }
 
-        // PUT: api/Transactions/5
+        // PUT: api/Currencies/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTransaction(TransactionModel transaction)
+        public async Task<IActionResult> PutCurrency(CurrencyModel currency)
         {
             try
             {
-                var modelToUpdate = await _transactionService.Update(transaction);
+                var modelToUpdate = await _currencyService.Update(currency);
                 return Ok(modelToUpdate);
             }
             catch (Exception ex)
@@ -59,14 +59,14 @@ namespace fm.Web.Api.Controllers
             }
         }
 
-        // POST: api/Transactions
+        // POST: api/Currencies
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<TransactionModel>> PostTransaction(TransactionModel transaction)
-        {
+        public async Task<ActionResult<CurrencyModel>> PostCurrency(CurrencyModel currency)
+        {            
             try
             {
-                var savedModel = await _transactionService.Insert(transaction);
+                var savedModel = await _currencyService.Insert(currency);
                 return Ok(savedModel);
             }
             catch (Exception ex)
@@ -75,16 +75,16 @@ namespace fm.Web.Api.Controllers
             }
         }
 
-        // DELETE: api/Transactions/5
+        // DELETE: api/Currencies/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTransaction(long id)
+        public async Task<IActionResult> DeleteCurrency(long id)
         {
-            var modelToDelete = await _transactionService.GetById(id);
+            var modelToDelete = await _currencyService.GetById(id);
             if (modelToDelete == null)
             {
                 return NotFound();
             }
-            var result = await _transactionService.Delete(id);
+            var result = await _currencyService.Delete(id);
 
             return Ok(result);
         }

@@ -2,7 +2,7 @@
 
 namespace fm.Interfaces.Repositories
 {
-    public interface ITransactionRepository : IBaseRepository<Transaction>
+    public interface ICurrencyRepository : IBaseRepository<Currency>
     {
     }
 }

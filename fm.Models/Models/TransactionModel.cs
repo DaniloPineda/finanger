@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace fm.Data.EFModels
+namespace fm.Models
 {
-    public partial class Transaction
+    public class TransactionModel
     {
         public long Id { get; set; }
         public string TransactionName { get; set; }
@@ -12,9 +12,5 @@ namespace fm.Data.EFModels
         public decimal Amount { get; set; }
         public long Currency { get; set; }
         public DateTime Date { get; set; }
-
-        public virtual TransactionCategory CategoryNavigation { get; set; }
-        public virtual Currency CurrencyNavigation { get; set; }
-        public virtual TransactionType TypeNavigation { get; set; }
     }
 }
