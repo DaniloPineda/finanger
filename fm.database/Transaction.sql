@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Transaction]
 (
-	[Id] BIGINT NOT NULL PRIMARY KEY, 
+	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY, 
     [TransactionName] NVARCHAR(50) NOT NULL, 
     [Description] NVARCHAR(300) NULL, 
     [Type] BIGINT NOT NULL, 

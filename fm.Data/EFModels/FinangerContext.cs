@@ -34,8 +34,6 @@ namespace fm.Data.EFModels
             {
                 entity.ToTable("Currency");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CurrencyName)
                     .IsRequired()
                     .HasMaxLength(50);
@@ -44,8 +42,6 @@ namespace fm.Data.EFModels
             modelBuilder.Entity<Transaction>(entity =>
             {
                 entity.ToTable("Transaction");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.Amount).HasColumnType("money");
 
@@ -80,8 +76,6 @@ namespace fm.Data.EFModels
             {
                 entity.ToTable("TransactionCategory");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CategoryName)
                     .IsRequired()
                     .HasMaxLength(50);
@@ -90,8 +84,6 @@ namespace fm.Data.EFModels
             modelBuilder.Entity<TransactionType>(entity =>
             {
                 entity.ToTable("TransactionType");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.TypeName)
                     .IsRequired()

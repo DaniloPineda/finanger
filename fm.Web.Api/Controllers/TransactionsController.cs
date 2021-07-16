@@ -46,10 +46,11 @@ namespace fm.Web.Api.Controllers
         // PUT: api/Transactions/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTransaction(TransactionModel transaction)
+        public async Task<IActionResult> PutTransaction(long id, TransactionModel transaction)
         {
             try
             {
+                transaction.Id = id;
                 var modelToUpdate = await _transactionService.Update(transaction);
                 return Ok(modelToUpdate);
             }

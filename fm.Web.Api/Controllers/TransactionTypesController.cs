@@ -43,10 +43,11 @@ namespace fm.Web.Api.Controllers
         // PUT: api/TransactionTypes/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTransactionType(TransactionTypeModel transactionType)
+        public async Task<IActionResult> PutTransactionType(long id, TransactionTypeModel transactionType)
         {
             try
             {
+                transactionType.Id= id;
                 var modelToUpdate = await _transactionTypeService.Update(transactionType);
                 return Ok(modelToUpdate);
             }

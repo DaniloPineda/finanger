@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[TransactionType]
 (
-	[Id] BIGINT NOT NULL PRIMARY KEY, 
+	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY, 
     [TypeName] VARCHAR(50) NOT NULL
 )

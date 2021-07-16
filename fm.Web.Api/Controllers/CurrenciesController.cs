@@ -46,10 +46,11 @@ namespace fm.Web.Api.Controllers
         // PUT: api/Currencies/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCurrency(CurrencyModel currency)
+        public async Task<IActionResult> PutCurrency(long id, CurrencyModel currency)
         {
             try
             {
+                currency.Id = id;
                 var modelToUpdate = await _currencyService.Update(currency);
                 return Ok(modelToUpdate);
             }

@@ -45,10 +45,11 @@ namespace fm.Web.Api.Controllers
         // PUT: api/TransactionCategories/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTransactionCategory(TransactionCategoryModel transactionCategory)
+        public async Task<IActionResult> PutTransactionCategory(long id, TransactionCategoryModel transactionCategory)
         {
             try
             {
+                transactionCategory.Id = id;
                 var modelToUpdate = await _transactionCategoryService.Update(transactionCategory);                
                 return Ok(modelToUpdate);
             }
