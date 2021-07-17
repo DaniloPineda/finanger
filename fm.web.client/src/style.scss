@@ -1,0 +1,64 @@
+$primary-color: #24565c;
+$secondary-color: #528286;
+$footer-main-color: #c7d9da;
+$zeropx-auto: 0px auto;
+
+.row-header {
+    margin: $zeropx-auto;
+    padding: $zeropx-auto;
+  }
+  
+  .row-content {
+    margin: $zeropx-auto;
+    padding: 50px 0px 50px 0px;
+    border-bottom: 1px ridge;
+    min-height: 400px;
+  }
+  
+  .footer {
+    background-color: $footer-main-color;
+    margin: $zeropx-auto;
+    padding: 20px 0px 20px 0px;
+  }
+  .jumbotron {
+    padding: 25px 60px 25px 60px;
+    margin: $zeropx-auto;
+    background: $secondary-color;
+    color: #c3eaec;
+  }
+  
+  address {
+    font-size: 80%;
+    margin: 0px;
+    color: #0f0f0f;
+  }
+  
+  .navbar-dark {
+    background-color: $primary-color;
+  }
+  
+  .page-enter {
+    opacity: 0.01;
+    transform: translateX(-100%);
+  }
+  
+  .page-enter-active {
+    opacity: 1;
+    transform: translateX(0%);
+    transition: all 300ms ease-in;
+  }
+  
+  .page-exit {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  
+  .page-exit-active {
+    opacity: 0.01;
+    transform: translateX(100%);
+    transition: all 300ms ease-out;
+  }
+  
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+

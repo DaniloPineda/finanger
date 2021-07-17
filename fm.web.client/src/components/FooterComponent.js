@@ -19,11 +19,11 @@ function Footer(){
                     <address>
 		              Engativá<br />
 		              Bogotá<br />
-		              Colomnbia<br />
+		              Colombia<br />
 		              <i className="fa fa-phone fa-lg"></i>: +852 1234 5678<br />
 		              <i className="fa fa-fax fa-lg"></i>: +852 8765 4321<br />
-		              <i className="fa fa-envelope fa-lg"></i>: <a href="mailto:confusion@food.net">
-                         confusion@food.net</a>
+		              <i className="fa fa-envelope fa-lg"></i>: <a href="mailto:danilopineda93@gmail.com">
+                      danilopineda93@gmail.com</a>
                     </address>
                 </div>
                 <div className="col-12 col-sm-4 align-self-center">
@@ -44,7 +44,7 @@ function Footer(){
             </div>
             <div className="row justify-content-center">             
                 <div className="col-auto">
-                    <p>© Copyright 2021 Ristorante Con Fusion</p>
+                    <p>Finanger | By Sr. Web Developer Danilo Pineda © Copyright 2021 </p>
                 </div>
             </div>
         </div>

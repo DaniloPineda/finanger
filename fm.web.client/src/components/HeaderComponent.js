@@ -32,9 +32,9 @@ class Header extends Component{
                 <Navbar dark expand="md">
                     <div className="container">
                         <NavbarToggler onClick={this.toggleNav} />
-                        <NavbarBrand className="mr-auto" href="/">
-                            <img src='assets/images/logo.png' height="30" width="41" alt='Ristorante Con Fusion' />
-                        </NavbarBrand>
+                        {/* <NavbarBrand className="mr-auto" href="/">
+                            <img src='assets/images/logo.png' height="30" width="41" alt='Finanger' />
+                        </NavbarBrand> */}
                         <Collapse isOpen={this.state.isNavOpen} navbar>
                             <Nav navbar>
                             <NavItem>
@@ -50,22 +50,22 @@ class Header extends Component{
                                 <NavLink className="nav-link" to='/contactus'><span className="fa fa-address-card fa-lg"></span> Contact Us</NavLink>
                             </NavItem>
                             </Nav>
-                            <Nav className="ml-auto" navbar>
+                            {/* <Nav className="ml-auto" navbar>
                                 <NavItem>
-                                    <Button outline onClick={this.toggleModal}>
+                                    <Button onClick={this.toggleModal}>
                                         <span className="fa fa-sign-in fa-lg"></span>Login
                                     </Button>
                                 </NavItem>
-                            </Nav>
+                            </Nav> */}
                         </Collapse>
                     </div>
                 </Navbar>
                 <Jumbotron>
                     <div className="container">
                         <div className="row row-header">
-                            <div className="col-12 col-sm-6">
-                                <h1>Ristorante con Fusion</h1>
-                                <p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
+                            <div className="col-12 text-center">
+                                <h1>Finanger | My Finance Manager</h1>
+                                <p>We make your financial accounting a little less painful.</p>
                             </div>
                         </div>
                     </div>
